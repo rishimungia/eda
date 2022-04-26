@@ -1,0 +1,33 @@
+rm(list = ls())
+mtdata <- mtcars
+library(dplyr)
+train = sample_n(mtdata, 15)
+x = train$wt
+y = train$mpg
+plot(x, y, main='Scatter Plot')
+cor.test(x,y)
+lmodel <- lm(y~x)
+abline(lmodel, col='red')
+summary(lmodel)
+a=data.frame(x=3)
+result = predict(lmodel, a)
+print(result)
+-
+-
+-
+-
+-
+rm(list=ls())
+mydata = read.csv("data.csv")
+library(dplyr)
+train = sample_n(mydata, 125)
+x = train$Height
+y = train$Weight
+plot(x, y, main='Scatter Plot')
+cor.test(x,y)
+lmodel <- lm(y~x)
+abline(lmodel, col='red')
+summary(lmodel)
+a=data.frame(x=160)
+result = predict(lmodel, a)
+print(result)

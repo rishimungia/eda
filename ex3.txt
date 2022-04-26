@@ -1,0 +1,41 @@
+library(forecast)
+library(tseries)
+setwd("E:/Semester 6/CSE3506 - EDA/Lab/Week 3")
+weather <- read.csv("weatherHistory2016.csv")
+View(weather)
+#Multiple Linear Model
+plot(weather$Apparent.Temperature..C., weather$Temperature..C.,
+main='Scatter plot')
+cor.test(weather$Temperature..C., weather$Apparent.Temperature..C.)
+plot(weather$Humidity, weather$Temperature..C., main='Scatter plot')
+cor.test(weather$Temperature..C., weather$Humidity)
+plot(weather$Wind.Speed..km.h., weather$Temperature..C., main='Scatter
+plot')
+cor.test(weather$Temperature..C., weather$Wind.Speed..km.h.)
+plot(weather$Wind.Bearing..degrees., weather$Temperature..C.,
+main='Scatter plot')
+cor.test(weather$Temperature..C., weather$Wind.Bearing..degrees.)
+plot(weather$Visibility..km., weather$Temperature..C., main='Scatter
+plot')
+cor.test(weather$Temperature..C., weather$Visibility..km.)
+#weather - (Apparent Temperature(C) + Humidity + Wind Speed(km/h) + Wind
+Bearing(degrees) + Visibility(km)) vs Temperature (C)
+lmodel <-
+lm(weather$Temperature..C.~weather$Apparent.Temperature..C.+weather$Humidi
+ty + weather$Wind.Speed..km.h. + weather$Wind.Bearing..degrees. +
+weather$Visibility..km.)
+summary(lmodel)
+#Forecasting
+weatherts <- ts(weather$Temperature..C., start = as.Date("2016-01-01"),
+end = as.Date("2016-12-31"), frequency = 24)
+class(weatherts)
+plot(weatherts)
+acf(weatherts)
+pacf(weatherts)
+adf.test(weatherts)
+weathermodel = auto.arima(weatherts, ic = "aic", trace = TRUE)
+summary(weathermodel)
+accuracy(weathermodel)
+weatherf = forecast(weathermodel, level=c(95), h=60)
+weatherf
+plot(weatherf)

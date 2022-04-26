@@ -1,0 +1,24 @@
+rm(list = ls())
+gd <- function(x, y, m, c, alpha, conv_thr, iter) {
+plot(x, y, col = "blue", pch = 20)
+iterations <- 0
+hf <- 0
+while(iterations <= iter) {
+y_p = m*x+c
+hf_new <- sum(y_p-y)^2
+m = m-alpha*sum((y_p-y)*x)
+c = c- alpha*sum(y_p-y)
+if(abs(hf-hf_new) < conv_thr) {
+break
+}
+hf <- hf_new
+iterations = iterations + 1
+}
+return(paste("Optimal intercept:", c, "Optimal slope:", m,
+"Loss Function: ",hf, "Iteration: ",iter))
+}
+data1 <- mtcars
+View(data1)
+gd(data1$wt, data1$mpg, -0.2, 32, 0.001, 0.00001, 2000)
+reg <- lm(data1$mpg~data1$wt)
+reg

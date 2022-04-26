@@ -1,0 +1,18 @@
+rm(list = ls())
+setwd("E:/Semester 6/CSE3506 - EDA/Lab/Week 5")
+mydata <- read.csv("Social_Network_Ads.csv")
+View(mydata)
+mydata$Gender<-as.factor(mydata$Gender)
+mydata$Purchased<-as.factor(mydata$Purchased)
+#glm(Output ~ Input varialbes, ~ data = data, family = type of
+logistic regression[e.g. binomial, etc.])
+mymodel <- glm(Purchased ~ Age+Gender+EstimatedSalary, data=mydata,
+family='binomial')
+summary(mymodel)
+#writing "response" in "predict" gives the probability
+res<-predict(mymodel,mydata,type='response')
+res
+cfmatrix<-table(Act=mydata$Purchased, pred=res>0.5)
+cfmatrix
+Acc=(cfmatrix[[1,1]]+cfmatrix[[2,2]])/sum(cfmatrix)
+Acc

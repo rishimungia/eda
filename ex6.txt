@@ -1,0 +1,48 @@
+# KNN - WDBC
+rm(list=ls())
+wdbc <- read.table('wdbc.data', sep = ',')
+View(wdbc)
+wdbc <- wdbc[,-1] # Removing the index.
+library(caTools)
+splitd <- sample.split(wdbc, SplitRatio = 0.8)
+train <- subset(wdbc, splitd=='TRUE')
+test <- subset(wdbc, splitd=='FALSE')
+norm <- function(x){((x-min(x))/(max(x)-min(x)))} # NORMALIZING THE
+DATA.
+normtrain <- as.data.frame(lapply(train[,-1],norm)) # REmoving the
+non-numeric data.
+normtest <- as.data.frame(lapply(test[,-1], norm))
+summary(train[,2:5])
+summary(normtrain[,1:4])
+library(class)
+pred <- knn(normtrain, normtest, train[,1], k=21) # k value is root
+value of traindata.
+#train[,1] target variable column
+cf <- table(pred, test[,1])
+cf
+acc <- (cf[[1,1]]+cf[[2,2]])/sum(cf)
+acc
+-
+-
+-
+-
+-
+#KNN - IRIS
+rm(list=ls())
+iris <- read.table('iris.data', sep=',')
+View(iris)
+library(caTools)
+splitd <- sample.split(iris, SplitRatio = 0.8)
+train <- subset(iris, splitd=='TRUE')
+test <- subset(iris, splitd=='FALSE')
+norm <- function(x){((x-min(x))/(max(x)-min(x)))}
+normtrain <- as.data.frame(lapply(train[,1:4],norm))
+normtest <- as.data.frame(lapply(test[,1:4], norm))
+summary(train[,1:4])
+summary(normtrain[,1:4])
+library(class)
+pred <- knn(normtrain, normtest, train[,5], k = 11)
+cf <- table(pred, test[,5])
+cf
+acc <- (cf[[1,1]]+cf[[2,2]]+cf[[3,3]])/sum(cf)
+acc

@@ -1,0 +1,13 @@
+#Importing the dplyr package
+library(dplyr)
+rm(list=ls())
+#Reading the dataset
+df <- read.csv("color-anova-example.csv")
+View(df)
+#grouping data
+group_by(df, color)%>% summarise(count=n(), mean = mean(response,
+na.rm = TRUE))
+#ANOVA
+ANOVA <- aov(response~color, data = df)
+summary(ANOVA)
+TukeyHSD(ANOVA)

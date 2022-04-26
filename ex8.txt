@@ -1,0 +1,28 @@
+### FOR USArrests data ###
+data <- read.csv("USArrests.csv", row.names=1)
+View(data)
+#Normalizing the data (scaling)
+df <- scale(data)
+#find euclidean distance before hierarchical clustering
+ed <- dist(df, method="euclidean")
+hercluster <- hclust(ed, method="complete")
+plot(hercluster)
+cluster <- cutree(hercluster, k=4) # k is the no. of clusters
+cluster
+rect.hclust(hercluster, k=4)
+-
+-
+-
+-
+-
+### For Iris data ###
+data <- read.csv("Iris.csv", row.names = 1)
+data <- data[,0:4]
+View(data)
+df <- scale(data)
+ed <- dist(df, method = "euclidean")
+hercluster <- hclust(ed, method="complete")
+plot(hercluster)
+cluster <- cutree(hercluster, k = 3)
+cluster
+rect.hclust(hercluster, k = 3)

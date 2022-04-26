@@ -1,0 +1,78 @@
+#### Iris Datasest ####
+rm(list = ls())
+data1 <- read.csv("iris.csv")
+View(data1)
+data1 <- data1[,-1]
+df <- scale(data1)
+fit <- kmeans(df,2)
+fit$cluster
+fit$clusters
+fit$withinss
+fit$tot.withinss
+Kmax <- 15
+wcss <- rep(NA,Kmax)
+nClust <- list()
+for(i in 1:Kmax){
+fit <- kmeans(df,i)
+wcss[i] <- fit$tot.withinss
+nClust[[i]] <- fit$size
+}
+wcss
+plot(1:Kmax, wcss, type = 'b')
+#from the plot we can understand that the value of cluster at
+optimum is 3.
+fit <- kmeans(df,3)
+#install.packages("factoextra")
+library(factoextra)
+fviz_nbclust(df, kmeans, method="wss")
+fviz_cluster(fit, df)
+library(cluster)
+fitm <- pam(df, 3, metric = "manhattan")
+5
+fviz_cluster(fitm,df)
+fitm$medoids
+fitm$clustering
+fit$size
+fit$centers
+-
+-
+-
+-
+-
+#### USArrest.csv ####
+rm(list=ls())
+set.seed(100)
+data <-
+read.csv("USArrests.csv")
+data <- data[,-1]
+View(data)
+df <- scale(data)
+fit <- kmeans(df,2)
+fit$cluster
+fit$withinss
+fit$tot.withinss
+Kmax <- 15
+wcss <- rep(NA,Kmax)
+nClust <- list()
+for(i in 1:Kmax){
+fit <- kmeans(df,i)
+wcss[i] <- fit$tot.withinss
+nClust[[i]] <- fit$size
+}
+wcss
+plot(1:Kmax, wcss, type = 'b')
+#from the plot we can understand that the value of cluster at
+optimum is 4.
+fit <- kmeans(df,4)
+#install.packages("factoextra")
+6
+library(factoextra)
+fviz_nbclust(df, kmeans, method="wss")
+fviz_cluster(fit, df)
+library(cluster)
+fitm <- pam(df, 4, metric = "manhattan")
+fviz_cluster(fitm,df)
+fitm$medoids
+fitm$clustering
+fit$size
+fit$centers
