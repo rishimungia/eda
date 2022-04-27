@@ -1,0 +1,12 @@
+Exercise Index
+
+1. Regression
+2. Time-series Forecasting
+3. Multi-regression + Forecast
+4. Analysis of Variance (ANOVA)
+5. Logistic Regression
+6. K-NN Algorithm
+7. Partitioning Based Clustering
+8. Hierarchical Clustering
+9. Gradient Descent
+10. Momentum Optimizer Gradient Descent
