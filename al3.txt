@@ -1,0 +1,38 @@
+Regression and Forecasting on Weather Data
+
+Algorithm for multi-regression:
+1. START
+2. Read the dataset and import all the required packages.
+3. Split the data into training data by either taking fraction or fixed sample rows.
+4. Check which variables/features have strong corelation with each other.
+a. If the value of correlation is close to 0 it means weak correlation.
+b. If the absolute value is close to 1 then strong correlation.
+5. Train the model with the variables/features which has strong correlation.
+6. Based on the summary of the model decide whether the model is accepted or rejected
+a. Observe the Pr(|t|) value,
+i. If it is <0.05 then it is significant.
+ii. Otherwise not significant
+b. Observe the F-statistic value and p-value.
+i. If p-value is <0.05 our model is accepted.
+ii. Otherwise, the model is rejected.
+7. Predict the required values with the help of the trained model
+8. STOP
+-
+-
+-
+-
+Algorithm for Forecast:
+1. START
+2. Read the dataset and import all the required packages.
+3. Convert the dataset into a time series.
+4. Check whether the data is stationary or not.
+a. By plot using acf.
+b. By using adf.test
+i. If the value is <0.05 then it is stationary
+ii. Otherwise, the data is not stationary.
+5. Select the best model by using auto.arima
+a. The model with the lowest value is the best.
+6. Forecast the data by using the forecast function and mention the confidence level.
+7. Plot the prediction done by the model
+8. Print the accuracy of the model.
+9. STOP

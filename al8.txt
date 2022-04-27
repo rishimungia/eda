@@ -1,0 +1,12 @@
+Hierarchical Clustering
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Normalize the dataset.
+4. Find the Euclidean Distance before hierarchical clustering.
+5. Make the hierarchical clustering by using function hclust and mention the number of
+clusters to be formed as k.
+6. Plot the hierarchical clusters.
+7. Mention which cluster the data belongs to using cuttree.
+8. STOP

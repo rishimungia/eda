@@ -1,0 +1,21 @@
+Momentum Optimizer Gradient Descent
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Initialize the variables as Lf = 0, u_m1=0, u_m2=0, u_c=0, iterations=0.
+4. y_pred <- m1*x1+m2*x2+c
+5. Lf_new <- 0.5*sum((y_pred-y)^2)
+6. nu_m1 <- gamma*u_m1+alpha*sum((y_pred-y)*x1)
+7. nu_m2 <- gamma*u_m2+alpha*sum((y_pred-y)*x2)
+8. nu_c <- gamma*u_c+alpha*sum(y_pred-y)
+9. m1 <- m1-nu_m1
+10. m2 <- m2-nu_m2
+11. c <- c-nu_c
+12. u_m1 <- nu_m1
+13. u_m2 <- nu_m2
+14. u_c <- nu_c
+15. Lf <- Lf_new
+16. iterations=iterations+1
+17. Repeat from step 4 until Iteration reaches the number of iterations given.
+18. STOP

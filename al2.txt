@@ -1,0 +1,17 @@
+Time-series Forecasting
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Convert the dataset into a time series.
+4. Check whether the data is stationary or not.
+a. By plot using acf.
+b. By using adf.test
+i. If the value is <0.05 then it is stationary
+ii. Otherwise, the data is not stationary.
+5. Select the best model by using auto.arima
+a. The model with the lowest value is the best.
+6. Forecast the data by using the forecast function and mention the confidence level.
+7. Plot the prediction done by the model
+8. Print the accuracy of the model.
+9. STOP

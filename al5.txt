@@ -1,0 +1,11 @@
+Logistic Regression
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Split the dataset into the training and testing data.
+4. Train the logistic regression model using glm function.
+5. Summarize the model: check which variables are significant
+6. Predict the result using the test data and build a confusion matrix.
+7. With the confusion matrix find the accuracy of the model.
+8. STOP

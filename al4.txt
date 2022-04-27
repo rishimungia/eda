@@ -1,0 +1,18 @@
+Analysis of Variance (ANOVA)
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Train the ANOVA model by using aov function and summarise.
+4. Observe the value of Probability
+a. If the value is >0.05 the null hypothesis is accepted and the values are not
+significantly different from each other, the F-value is less than the critical
+value.
+b. Else the null hypothesis is rejected, and F-value is greater than the critical
+value now test which values are significantly different by doing Tukey HSD
+test
+i. If the value of p adj is >0.05 then those two groups do not have
+significant difference
+ii. If the value of p adj is <0.05 then those two groups have significant
+difference between them.
+5. STOP

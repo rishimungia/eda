@@ -1,0 +1,23 @@
+Regression
+
+Algorithm:
+1. START
+2. Read / Take the dependent say ‘y’ and independent say ‘x’ data as input.
+3. Find the correlation between x and y.
+a. If the correlation is close to -1 then it is strong negative correlation.
+b. If the correlation is close to 0 then it shows weak correlation.
+c. If the correlation is close to 1 then it shows strong positive correlation.
+4. Split the dataset to get train data.
+5. Draw the Scatter Plot between x and y.
+6. Train the linear regression model between x and y.
+7. Plot the regression line obtained by the trained model.
+8. Summarize the model trained.
+9. Based on summary decide where the model is accepted or rejected.
+a. Observe the Pr(>|t|) value,
+i. if it is <0.05 then it is significant
+ii. otherwise not significant.
+b. Observe the F-statistic value and p-value.
+i. If p-value is <0.05 our model is accepted
+ii. Otherwise, the model is rejected.
+10. Predict the required values with the help of the trained model.
+11. STOP

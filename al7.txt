@@ -1,0 +1,11 @@
+Partitioning Based Clustering
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages (factoextra, cluster).
+3. Find the value of K(number of clusters) using the elbow method.
+4. Using the value of K train a model using kmeans clustering algorithm.
+5. Classify the datapoints based on the model and divide them into there respective
+clusters.
+6. Plot the points with their respective clusters.
+7. STOP

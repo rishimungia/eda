@@ -1,0 +1,17 @@
+Gradient Descent
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages.
+3. Initialize the variables as x1 = wt, x2 = hp, y = mpg, m2 = -0.2, m1=-0.2,c = 32, alpha
+= 0.0000002, con_thr = 0.0000001, Iter = 0
+4. Yp = m1*x1 + m2*x2 +c
+5. Lf_new = 0.5 * sum((Yp-y)^2)
+6. m1 = m1-alpha*sum((Yp-y)*x1)
+7. m2 = m2-alpha*sum((Yp-y)*x2)
+8. c = c-alpha*sum(Yp-y)
+9. Lf = Lf_new
+10. Increment Iter
+11. Repeat from step 4 until Iter reaches 100000 or abs(Lf-Lf_new) becomes < or equal to
+con_thr
+12. STOP

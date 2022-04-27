@@ -1,0 +1,20 @@
+K-NN Algorithm
+
+Algorithm:
+1. START
+2. Read the dataset and import all the required packages (caTools and class).
+3. Split the dataset into train and test dataset.
+4. Normalize the test and train dataset while also removing the target and non-numerical
+columns.
+5. Train the knn model with knn(normtrain, normtest, train[,targetColumn], k).
+6. Working of KNN model:
+a. Select the number K of the neighbours.
+b. Calculate the Euclidean distance of K number of neighbours.
+c. Take the K nearest neighbour as per the calculated Euclidean distance.
+d. Among the k neighbours, count the number of the data points in each
+category.
+e. Assign the new data points to the category for which the number of the
+neighbour is maximum.
+7. Plot the confusion matrix.
+8. Calculate the accuracy of the model.
+9. STOP
